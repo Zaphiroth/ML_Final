@@ -26,7 +26,7 @@ suppressPackageStartupMessages({
 
 
 ##---- Readin data ----
-stock.raw <- read_xlsx('stock.xlsx')
+stock.raw <- read_xlsx('./data/stock.xlsx')
 colnames(stock.raw) <- c('id', 'date', 'store', 'product', 'stock', 'receipt', 'sales', 'stockout')
 
 stock.clean <- stock.raw %>% 
@@ -81,7 +81,7 @@ stock.stockout <- stock.clean %>%
                                                       0)))))) %>% 
   mutate(stockout = if_else(stockout > 0, 1, stockout))
 
-# write.csv(stock.stockout, 'stock_thres0.csv', row.names = FALSE)
+# write.csv(stock.stockout, './data/stock_thres0.csv', row.names = FALSE)
 
 ## check segments
 stock.stockout.chk <- stock.stockout %>% 
@@ -98,7 +98,7 @@ stock.train <- stock.stockout[split.set == 0, ]
 stock.test <- stock.stockout[split.set == 1, ]
 
 ## threshold = 0.5
-stock.stockout5 <- read_csv('./stock_thres0.5.csv') %>% 
+stock.stockout5 <- read_csv('./data/stock_thres0.5.csv') %>% 
   mutate(store = ifelse(store == 'A', 1, 
                         ifelse(store == 'B', 2, 
                                ifelse(store == 'C', 3, 

@@ -24,8 +24,8 @@ suppressPackageStartupMessages({
   library(cvms)
 })
 
-source('./XGBoost.R')
-source('./ROCCurve.R')
+source('./functions/XGBoost.R')
+source('./functions/ROCCurve.R')
 
 
 ##---- Parameters ----
