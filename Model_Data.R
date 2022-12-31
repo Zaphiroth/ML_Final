@@ -18,9 +18,10 @@ suppressPackageStartupMessages({
   library(data.table)
   library(lubridate)
   library(plotly)
-  library(pROC)
   library(tidyverse)
   library(xgboost)
+  library(pROC)
+  library(cvms)
 })
 
 
@@ -92,6 +93,24 @@ stock.stockout.chk <- stock.stockout %>%
 set.seed(2022)
 split.set <- sample(c(0,1), size = 7724, replace = TRUE, prob = c(0.8, 0.2))
 
+## threshold = 0
 stock.train <- stock.stockout[split.set == 0, ]
 stock.test <- stock.stockout[split.set == 1, ]
+
+## threshold = 0.5
+stock.stockout5 <- read_csv('./stock_thres0.5.csv') %>% 
+  mutate(store = ifelse(store == 'A', 1, 
+                        ifelse(store == 'B', 2, 
+                               ifelse(store == 'C', 3, 
+                                      ifelse(store == 'D', 4, 
+                                             0)))), 
+         product = ifelse(product == 'Tomato', 1, 
+                          ifelse(product == 'Carrot', 2, 
+                                 ifelse(product == 'Yam', 3, 
+                                        ifelse(product == 'Potato', 4, 
+                                               ifelse(product == 'Onion', 5, 
+                                                      0))))))
+
+stock.train5 <- stock.stockout5[split.set == 0, ]
+stock.test5 <- stock.stockout5[split.set == 1, ]
 

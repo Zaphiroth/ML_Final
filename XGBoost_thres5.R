@@ -45,9 +45,9 @@ xgb.params <- list(
 
 ##---- XGBoost ----
 ## all
-stock.xgb0 <- XGBoost(
-  stock.train, 
-  stock.test, 
+stock.xgb5 <- XGBoost(
+  stock.train5, 
+  stock.test5, 
   product = NULL, 
   seed = 0, 
   params = xgb.params, 
@@ -55,9 +55,9 @@ stock.xgb0 <- XGBoost(
 )
 
 ## tomato
-tomato.xgb0 <- XGBoost(
-  stock.train, 
-  stock.test, 
+tomato.xgb5 <- XGBoost(
+  stock.train5, 
+  stock.test5, 
   product = 1, 
   seed = 1, 
   params = xgb.params, 
@@ -65,9 +65,9 @@ tomato.xgb0 <- XGBoost(
 )
 
 ## carrot
-carrot.xgb0 <- XGBoost(
-  stock.train, 
-  stock.test, 
+carrot.xgb5 <- XGBoost(
+  stock.train5, 
+  stock.test5, 
   product = 2, 
   seed = 2, 
   params = xgb.params, 
@@ -75,9 +75,9 @@ carrot.xgb0 <- XGBoost(
 )
 
 ## yam
-yam.xgb0 <- XGBoost(
-  stock.train, 
-  stock.test, 
+yam.xgb5 <- XGBoost(
+  stock.train5, 
+  stock.test5, 
   product = 3, 
   seed = 3, 
   params = xgb.params, 
@@ -85,9 +85,9 @@ yam.xgb0 <- XGBoost(
 )
 
 ## potato
-potato.xgb0 <- XGBoost(
-  stock.train, 
-  stock.test, 
+potato.xgb5 <- XGBoost(
+  stock.train5, 
+  stock.test5, 
   product = 4, 
   seed = 4, 
   params = xgb.params, 
@@ -95,9 +95,9 @@ potato.xgb0 <- XGBoost(
 )
 
 ## onion
-onion.xgb0 <- XGBoost(
-  stock.train, 
-  stock.test, 
+tomato.xgb5 <- XGBoost(
+  stock.train5, 
+  stock.test5, 
   product = 5, 
   seed = 5, 
   params = xgb.params, 
