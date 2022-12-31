@@ -95,7 +95,7 @@ potato.xgb5 <- XGBoost(
 )
 
 ## onion
-tomato.xgb5 <- XGBoost(
+onion.xgb5 <- XGBoost(
   stock.train5, 
   stock.test5, 
   product = 5, 
